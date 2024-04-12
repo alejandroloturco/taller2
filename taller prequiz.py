@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import scipy.io
 
 matriz = np.random.randint(100, size=(40,30,100,10))
 
@@ -16,3 +17,11 @@ new2_matriz = np.reshape(new_matriz,(new_matriz.shape[0],new_matriz.shape[1]*new
 
 def conversion(matriz):
     return pd.DataFrame(matriz)
+
+def cargar(ruta):
+    if ruta.endswith('.mat'):
+        return scipy.io.loadmat(ruta)
+    elif ruta.endsith('.csv'):
+        return pd.read_csv(ruta)
+    else:
+        print("tipo de archivo no reconocido")
