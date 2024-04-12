@@ -25,3 +25,20 @@ def cargar(ruta):
         return pd.read_csv(ruta)
     else:
         print("tipo de archivo no reconocido")
+
+def calculadora(matriz, operacion,eje = None):
+    if operacion == 'sum':
+        return np.sum(matriz, axis = eje)
+    elif operacion == 'rest':
+        return np.subtract.reduce(matriz, axis = eje)
+    elif operacion == 'mul':
+        return np.prod(matriz, axis = eje)
+    elif operacion == 'div':
+        return np.divide.reduce(matriz, axis = eje)
+    elif operacion == 'log':
+        return np.log(matriz)
+    elif operacion == 'prom':
+        return np.mean(matriz, axis = eje)
+    elif operacion == 'desvesta':
+        return np.std(matriz, axis = eje)
+
